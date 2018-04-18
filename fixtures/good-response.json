@@ -1,0 +1,171 @@
+{
+  "TrackResponse": {
+    "Response": {
+      "ResponseStatus": {
+        "Code": "1",
+        "Description": "Success"
+      },
+      "TransactionReference": ""
+    },
+    "Shipment": {
+      "InquiryNumber": {
+        "Code": "01",
+        "Description": "ShipmentIdentificationNumber",
+        "Value": "1ZE25708A257082570"
+      },
+      "ShipperNumber": "E25708",
+      "ShipmentAddress": [
+        {
+          "Type": {
+            "Code": "01",
+            "Description": "Shipper Address"
+          },
+          "Address": {
+            "AddressLine": "1234 BROADWAY ST",
+            "City": "NEW YORK",
+            "StateProvinceCode": "NY",
+            "PostalCode": "10001",
+            "CountryCode": "US"
+          }
+        },
+        {
+          "Type": {
+            "Code": "02",
+            "Description": "ShipTo Address"
+          },
+          "Address": {
+            "City": "SAN FRANCISCO",
+            "StateProvinceCode": "CA",
+            "PostalCode": "94111",
+            "CountryCode": "US"
+          }
+        }
+      ],
+      "ShipmentWeight": {
+        "UnitOfMeasurement": {
+          "Code": "LBS"
+        },
+        "Weight": "2.50"
+      },
+      "Service": {
+        "Code": "003",
+        "Description": "UPS GROUND"
+      },
+      "PickupDate": "20180312",
+      "DeliveryDetail": {
+        "Type": {
+          "Code": "03",
+          "Description": "Scheduled Delivery"
+        },
+        "Date": "20180319"
+      },
+      "Package": {
+        "TrackingNumber": "1ZE25708A257082570",
+        "PackageServiceOption": [
+          {
+            "Type": {
+              "Code": "02",
+              "Description": "Adult Signature Required"
+            }
+          },
+          {
+            "Type": {
+              "Code": "043",
+              "Description": "CUSTOMIZED DELIVERY CONFIRMATION"
+            }
+          }
+        ],
+        "Activity": [
+          {
+            "ActivityLocation": {
+              "Address": {
+                "City": "HODGKINS",
+                "StateProvinceCode": "IL",
+                "CountryCode": "US"
+              }
+            },
+            "Status": {
+              "Type": "I",
+              "Description": "Departure Scan",
+              "Code": "DP"
+            },
+            "Date": "20180316",
+            "Time": "112200"
+          },
+          {
+            "ActivityLocation": {
+              "Address": {
+                "City": "SECAUCUS",
+                "StateProvinceCode": "NJ",
+                "CountryCode": "US"
+              }
+            },
+            "Status": {
+              "Type": "I",
+              "Description": "Arrival Scan",
+              "Code": "AR"
+            },
+            "Date": "20180312",
+            "Time": "233600"
+          },
+          {
+            "ActivityLocation": {
+              "Address": {
+                "City": "MASPETH",
+                "StateProvinceCode": "NY",
+                "CountryCode": "US"
+              }
+            },
+            "Status": {
+              "Type": "I",
+              "Description": "Departure Scan",
+              "Code": "DP"
+            },
+            "Date": "20180312",
+            "Time": "224000"
+          },
+          {
+            "ActivityLocation": {
+              "Address": {
+                "City": "MASPETH",
+                "StateProvinceCode": "NY",
+                "CountryCode": "US"
+              }
+            },
+            "Status": {
+              "Type": "I",
+              "Description": "Origin Scan",
+              "Code": "OR"
+            },
+            "Date": "20180312",
+            "Time": "210400"
+          },
+          {
+            "ActivityLocation": {
+              "Address": {
+                "CountryCode": "US"
+              }
+            },
+            "Status": {
+              "Type": "M",
+              "Description": "Order Processed: Ready for UPS",
+              "Code": "MP"
+            },
+            "Date": "20180312",
+            "Time": "190600"
+          }
+        ],
+        "Message": {
+          "Code": "01",
+          "Description": "On Time"
+        },
+        "PackageWeight": {
+          "UnitOfMeasurement": {
+            "Code": "LBS"
+          },
+          "Weight": "2.50"
+        }
+      }
+    }
+  }
+}

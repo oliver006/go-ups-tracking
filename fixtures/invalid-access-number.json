@@ -1,0 +1,22 @@
+{
+  "Fault": {
+    "faultcode": "Client",
+    "faultstring": "An exception has been raised as a result of client data.",
+    "detail": {
+      "Errors": {
+        "ErrorDetail": {
+          "Severity": "Hard",
+          "PrimaryErrorCode": {
+            "Code": "250003",
+            "Description": "Invalid Access License number"
+          },
+          "Location": {
+            "LocationElementName": "null:AccessLicenseNumber",
+            "XPathOfElement": "/p1:Envelope[1]/p1:Header[1]/p2:Security[1]/p3:UPSServiceAccessToken[1]/p3:AccessLicenseNumber[1]",
+            "OriginalValue": "0D430E107C6C10D"
+          }
+        }
+      }
+    }
+  }
+}
