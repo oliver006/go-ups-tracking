@@ -46,14 +46,15 @@ type TrackResponse struct {
 	}
 	Shipment struct {
 		Package struct {
-			Activity             []Activity
+			Activity []Activity
 			PackageServiceOption []struct {
 				Type CodeDescr
 			}
-			Message       CodeDescr
-			PackageWeight Weight
+			TrackingNumber string
+			Message        CodeDescr
+			PackageWeight  Weight
 		}
-		ShipperNumber   string
+		ShipperNumber string
 		ShipmentAddress []struct {
 			Type    CodeDescr
 			Address Address
@@ -73,7 +74,7 @@ type TrackResponse struct {
 type Fault struct {
 	Faultcode   string
 	Faultstring string
-	Detail      struct {
+	Detail struct {
 		Errors struct {
 			ErrorDetail struct {
 				Severity         string
@@ -138,6 +139,51 @@ func parseDatetime(activities *[]Activity) {
 			(*activities)[idx].ParsedTimestamp = t
 		}
 	}
+}
+
+func fmtDate(s string) string {
+	s = s[4:6] + "/" + s[6:8] // + "/" + s[0:4]
+	return s
+}
+
+func fmtTime(s string) string {
+	s = s[0:2] + ":" + s[2:4]
+	return s
+}
+
+func(a *Address) String() string {
+	return fmt.Sprintf("%s, %s %s",
+		a.City,
+		a.StateProvinceCode,
+		a.CountryCode,
+	)
+}
+
+func (cd *CodeDescr) String() string {
+	return cd.Code + " - " + cd.Description
+}
+
+func (a *Activity) String() string {
+	s := fmt.Sprintf("%#v", a)
+	switch a.Status.Type {
+
+	case  "I":
+		s = fmt.Sprintf(
+			`Location %s
+%s @ %s %s`,
+			a.ActivityLocation.Address.String(),
+			a.Status.Description, fmtTime(a.Time), fmtDate(a.Date),
+		)
+	default:
+		s = fmt.Sprintf(
+			`%s @ %s %s`,
+			a.Status.Description, fmtTime(a.Time), fmtDate(a.Date),
+		)
+
+
+	}
+
+	return s
 }
 
 func (c *Client) TrackActivity(trackingNum string) (*TrackResponse, error) {
